@@ -13,6 +13,7 @@ class Home extends Component {
             menus: [],
             items: [],
             item: {},
+            price: 0,
         }
         this.output = this.output.bind(this);
     }
@@ -25,12 +26,17 @@ class Home extends Component {
     }
 
     output(evt) {
-        console.log("With love from parent P land :)", evt)
-        this.setState({ item: evt })
+        var price = 0;
+        if(evt.price !== 0 && evt.portions[0].price !== 0)
+        {
+            price = evt.price
+            evt.price = 0;
+        } else price = evt.price;
+        this.setState({ item: evt, price:price })
     }
 
     render() {
-        let cart = (Object.keys(this.state.item).length !== 0) ? (<Cart item={this.state.item} />) : (<Cart />);
+        let cart = (Object.keys(this.state.item).length !== 0) ? (<Cart item={this.state.item} cost={this.state.price}/>) : (<Cart />);
         return (
             <div className="content">
                 <Navbar bg="dark" variant="dark">

@@ -8,7 +8,7 @@ class renderItem extends Component {
         super(props);
         this.state = {
             portions: [],
-            cost: 20,
+            cost: 0,
             openModal: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +18,8 @@ class renderItem extends Component {
     }
 
     handleSubmit(e) {
-        this.props.func(this.props.item)
+        console.log(this.state.cost);
+        this.props.func(this.props.item);
     }
 
     componentDidMount() {
@@ -35,24 +36,22 @@ class renderItem extends Component {
 
     getPrice(e) {
         this.props.item.price = e.value;
-        console.log(this.props.item.price);
     }
 
     handleDelete() {
         fetch("/food-item/delete", {
             method: 'DELETE',
-            body: JSON.stringify({id: this.props.item._id}),
+            body: JSON.stringify({ id: this.props.item._id }),
 
             headers: {
-              "Content-type": "application/json; charset=UTF-8"
+                "Content-type": "application/json; charset=UTF-8"
             }
-          }).then(response => response.json())
-          this.forceUpdate();
+        }).then(response => response.json())
+        this.forceUpdate();
     }
 
     render() {
         let item = this.props.item;
-       // let options = this.state.portions;
         let ingredients =
             item.ingredients
                 .map(ing => <span key={ing}>{ing}</span>)
@@ -62,9 +61,9 @@ class renderItem extends Component {
                 <Select style={{ font: '5px' }} options={this.state.portions} onChange={this.getPrice} defaultValue={{ label: "mala", value: 2 }} />
             </div>
         )
-        let admin = this.props.admin ?<b> <Button color="primary" onClick={this.toggleModal}>Edit</Button> 
-        <Button color="primary" onClick={this.handleDelete}>Delete</Button> </b>:
-        <Button color="primary" onClick={this.handleSubmit}>Dodaj</Button>
+        let admin = this.props.admin ? <b> <Button color="primary" onClick={this.toggleModal}>Edit</Button>
+            <Button color="primary" onClick={this.handleDelete}>Delete</Button> </b> :
+            <Button color="primary" onClick={this.handleSubmit}>Add</Button>
         return (
 
             <div >
@@ -76,8 +75,8 @@ class renderItem extends Component {
                 <Modal isOpen={this.state.openModal} toggle={this.toggleModal} >
                     <ModalHeader toggle={this.toggleModal}>Modal title</ModalHeader>
                     <ModalBody>
-                <FoodItem edit={true} item={this.props.item}/>
-                </ModalBody>
+                        <FoodItem edit={true} item={this.props.item} />
+                    </ModalBody>
                 </Modal>
 
             </div>
