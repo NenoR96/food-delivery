@@ -1,4 +1,4 @@
-# Rooms reservation Application
+# Food Delivery Application
 
 
 ## Technologies
