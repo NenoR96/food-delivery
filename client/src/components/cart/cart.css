@@ -1,0 +1,20 @@
+
+span.shop {
+    margin-left: 20px; 
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px;
+}
+
+.card { border-color: #007bff; margin-top: 40px; width: 80%; }
+
+.card-header { 
+    color: white;
+    background-color:#007bff;
+}
+
+.list-group.items { margin: 0px; width: auto; }
+.list-group-item.item {  border-bottom: 1px solid; border-color: #007bff; }
+
+button.hidden{ display: none; visibility: hidden; }

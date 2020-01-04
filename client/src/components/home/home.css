@@ -1,0 +1,34 @@
+.content {
+    background: url("https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/6463322/910/603/m2/fpnw/wm0/screenshot_2-.png?1559133476&s=53aacae4e16d5c156701871e93e0a30a");
+    min-height: 1200px;
+}
+.navbar {
+    width: 100%; 
+    margin-left: auto; margin-right: auto;
+    
+}
+.list-group {
+    margin-top: 40px; 
+    width: 80%; 
+    margin-left: auto; margin-right: auto;
+}
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+    display:inline-block;
+    float: none;
+}
+
+b {
+    float: right;
+}
+
+button {
+    padding: 0px;
+ }
+
+.fa-shopping-cart {
+   font-size: 30px;
+}
