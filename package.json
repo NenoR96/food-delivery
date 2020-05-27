@@ -13,7 +13,7 @@
     "http-errors": "^1.6.3",
     "jade": "~1.11.0",
     "mongodb": "^3.3.2",
-    "mongoose": "^5.7.0",
+    "mongoose": "^5.7.5",
     "morgan": "~1.9.1",
     "react-bootstrap-sidebar": "0.0.1",
     "stripe": "^7.15.0",
